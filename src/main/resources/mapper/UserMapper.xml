@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.studyweb.mapper.UserMapper">
+    <select id="login" resultType="User">
+        SELECT * FROM theuser where userid=#{param1} and password=#{param2}
+    </select>
+
+    <select id="register">
+        insert into  theuser values(#{param1},#{param3},#{param2});
+    </select>
+
+    <select id="careuser">
+        insert into careuser values(#{param1},#{param2})
+    </select>
+
+    <select id="carevideo">
+        insert into carevideo values(#{param1},#{param2})
+    </select>
+
+
+
+</mapper>

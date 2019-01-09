@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.studyweb.mapper.VideoMapper">
+    <select id="getVideos" resultType="Video">
+        SELECT * FROM  video order by visit
+    </select>
+
+    <select id="sendVideos" resultType="Video">
+        select video.videoname,video.videoid,video.userid,video.sendtime,video.url,video.visit,video.title from video where userid=#{param1}
+    </select>
+
+    <select id="careVideo" resultType="Video">
+        select video.videoname,video.videoid,video.userid,video.sendtime,video.url,video.visit,video.title from video,carevideo where carevideo.userid=#{param1} and carevideo.videoid = video.videoid
+    </select>
+
+    <select id="studyed" >
+        insert into video values (#{param1},#{param2},#{param3},now(),#{param4},0,#{param5})
+    </select>
+
+    <select id="hotpeople" resultType="Video">
+        select video.videoname,video.videoid,video.userid,video.sendtime,video.url,video.visit,video.title from video where userid=#{param1}
+    </select>
+</mapper>
